@@ -61,11 +61,11 @@ function saveBook(){
     }else if($('#title_checkbox').prop('checked')){
             Books.order--;
             deleteBook(parentLiId);
-    }else if(parentLi){
+    }else if(parentLi){        
             $(parentLi).find('.book_title .book_name').html(newBook.book),
-            $(parentLi).find('.book_title .book_author').html(newBook.author),
+            $(parentLi).find('.book_title .book_author').html('from ' + newBook.author),
             $(parentLi).find('.book_info .book_friend').html(newBook.friend),
-            $(parentLi).find('.book_info .book_until').html(newBook.until);
+            $(parentLi).find('.book_info .book_until').html(new Date().toLocaleDateString() + ' - ' +newBook.until);
            
             $(parentLi).removeClass('edit');
             parentLiId = 'n';
@@ -105,9 +105,9 @@ function showChangeModal(){
         $(parentLi).addClass('edit');
 
         book.val($(parentLi).find('.book_title .book_name').text());
-        author.val($(parentLi).find('.book_title .book_author').text());
+        author.val($(parentLi).find('.book_title .book_author').text().slice(5,));
         friend.val($(parentLi).find('.book_info .book_friend').text());
-        until.val($(parentLi).find('.book_info .book_until').text())
+        until.val($(parentLi).find('.book_info .book_until').text().slice(13,))
 
         showModal ();
 }
