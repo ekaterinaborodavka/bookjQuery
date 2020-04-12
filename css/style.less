@@ -1,0 +1,211 @@
+//compress:true;
+@import "vars";
+@import "mixins";
+
+body{
+    .size(20px);
+    .flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    .bg(@bg_body);
+    padding-bottom: 10%;
+}
+.wrapper_header, .wrapper_main, .wrapper_footer{
+    width: 100%;
+}
+.header, .main, .footer{
+    width: 1440px;
+    margin: 0 auto;
+}
+.wrapper_header{
+    .bg(@bg_head);
+}
+.title_header{
+    .text_center;
+    .size(1.5em);
+    padding: 3%;
+    .col(@bg_color);
+}
+.add_book{
+    display: block;
+    margin: 0 auto;
+    .padding;
+    color: #4e9c50;
+    .border(transparent);
+    .size(1.2em);
+    .bg(@bg_color);
+}
+.wrapper_footer{
+    .border(black);
+    position: fixed;
+    bottom:0;
+    .bg(@bg_color);
+}
+.modal{
+    pointer-events: none;
+    display: none;
+    opacity: 0;
+}
+.modal-content{
+    position: relative;
+    margin: 5% auto;
+    width: 45%;
+    .border(black);
+    z-index: 2;
+    .bg(@bg_color);
+    .flex;
+    flex-wrap: wrap;
+}
+.modal-title{
+    .size(1.2em);
+}
+.filter{
+    display: none;
+}
+.active_filter{
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;
+}
+.active{
+    pointer-events: auto;
+    display: block;
+    position: absolute;
+    margin: 0 5%;
+    z-index: 2;
+    animation: fade 1s;
+}
+@keyframes fade {
+    from{opacity:0;}
+    to{opacity: 1;}
+}
+.wrapper_title{
+    .text_center;
+    width: 100%;
+    padding: 4%;
+    .bg(@bg_head);
+    .col(@bg_color);
+}
+.book, .author{
+    width: 45%;
+    .padding;
+    margin: 0 0 0 3%;
+}
+.friend, .until{
+    width: 40%;
+    .padding;
+    margin: 0 3% 0 0;
+}
+#title_book, #title_author, #title_friend, #title_until{
+    width: 100%;
+    .border(transparent);
+    .border_bot(@bg_head);
+    .lheig(2.5em);
+    color: gray;
+    .size(0.9em);
+}
+#title_book, #title_author{
+    color: #4e9c50;
+}
+.buttons{
+    width: 100%;
+    .bg(@bg_body);
+    margin: 4% 0 0 0;
+    .flex;
+    justify-content: flex-end;
+}
+.cancel, .save{
+    .text_center;
+    width: 30%;
+    .border(transparent);
+    border-radius: 5%;
+    padding: 1%;
+    margin: 2% 4%;
+    .size(0.9em);
+}
+.save{
+    .bg(@bg_head);
+    .col(@bg_color); 
+}
+.cancel{
+    color: gray;
+}
+.checkbox{
+    display: none;
+}
+#active_checkbox{
+    display: block;
+    .col(@bg_check);
+    .padding;
+    margin: 0 0 0 3%;
+    .lheig(2em);
+    width: 100%;
+}
+.book_item, .total_info{
+    width: 56%;
+    margin: 2% auto;
+    .flex;
+}
+.total_book{
+    width: 60%;
+    .padding;
+    .text_center;
+    .col(grey);
+}
+.total_lent{
+    width: 40%;
+    .padding;
+    .text_center;
+    .col(@bg_head);
+    .bold;
+}
+.book_item{
+    .bg(@bg_color);
+}
+.number{
+    width: 5%;
+    .bg(@bg_head);
+    .flex;
+    align-items: center;
+    justify-content: center;
+    .col(@bg_color);
+}
+.book_title{
+    width: 55%;
+    padding: 5%;
+    .lheig(2em);
+}
+.book_name, .book_friend{
+    .col(@bg_head);
+    .size(1.2em);
+}
+.book_name, .book_author, .book_friend{
+    .bold;
+}
+.book_author, .book_until{
+    .col(grey);
+    .size(0.9em);
+}
+.book_info{
+    width: 25%;
+    .bg(@bg_info);
+    padding: 5%;
+    .lheig(2em);
+    .text_center;
+}
+.book_button{
+    position: relative;
+    width: 5%;
+    .border(transparent);
+    .bg(@bg_info);
+}
+.button_img{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
