@@ -145,6 +145,7 @@ body{
     margin: 0 0 0 3%;
     .lheig(2em);
     width: 100%;
+    text-indent: 1.5em;
 }
 .book_item, .total_info{
     width: 56%;
@@ -208,4 +209,24 @@ body{
     position: absolute;
     top: 2%;
     right: 2%;
+}
+
+
+.checkbox input[type=checkbox] {
+	display:none;
+}
+.checkbox label:after {
+	content:'';
+	display:block;
+	height:14px;
+	width:14px;
+	outline:1px solid grey;
+	position:absolute;
+	top:67%;
+	left:6%;
+}
+.checkbox input[type=checkbox]:checked + label:after {
+	width:10px;
+	height:10px;
+	.bg(@bg_check);
 }
