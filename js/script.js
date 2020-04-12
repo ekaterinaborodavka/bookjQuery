@@ -15,6 +15,7 @@ let addBook = $('.add_book'),
     $(addBook.on('click', showModal));
     $(cancel.on('click', cancelModal));
     $(save.on('click', saveBook));
+
     $('#datepicker').datepicker({
         dateFormat:'d.mm.yy',
         minDate: 0
@@ -62,9 +63,9 @@ function saveBook(){
             deleteBook(parentLiId);
     }else if(parentLi){
             $(parentLi).find('.book_title .book_name').html(newBook.book),
-            $(parentLi).find('.book_title .book_author').html('from ' + newBook.author),
+            $(parentLi).find('.book_title .book_author').html(newBook.author),
             $(parentLi).find('.book_info .book_friend').html(newBook.friend),
-            $(parentLi).find('.book_info .book_until').html(new Date().toLocaleDateString() + ' - ' + newBook.until);
+            $(parentLi).find('.book_info .book_until').html(newBook.until);
            
             $(parentLi).removeClass('edit');
             parentLiId = 'n';
