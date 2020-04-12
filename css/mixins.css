@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+}
+.padding {
+  padding: 2%;
+}
+.text_center {
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+}

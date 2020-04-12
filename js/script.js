@@ -6,7 +6,7 @@ let addBook = $('.add_book'),
     book = $('#title_book'),
     author = $('#title_author'),
     friend = $('#title_friend'),
-    until = $('#title_until'),
+    until = $('#datepicker'),
     bookList = $('.book_list'),
     totalBook = $('.total_book'),
     parentLi,
@@ -15,6 +15,10 @@ let addBook = $('.add_book'),
     $(addBook.on('click', showModal));
     $(cancel.on('click', cancelModal));
     $(save.on('click', saveBook));
+    $('#datepicker').datepicker({
+        dateFormat:'d.mm.yy',
+        minDate: 0
+    });
 
 function showModal (){
     $('.modal').attr('class', 'active'),
@@ -60,7 +64,7 @@ function saveBook(){
             $(parentLi).find('.book_title .book_name').html(newBook.book),
             $(parentLi).find('.book_title .book_author').html('from ' + newBook.author),
             $(parentLi).find('.book_info .book_friend').html(newBook.friend),
-            $(parentLi).find('.book_info .book_until').html(newBook.until);
+            $(parentLi).find('.book_info .book_until').html(new Date().toLocaleDateString() + ' - ' + newBook.until);
            
             $(parentLi).removeClass('edit');
             parentLiId = 'n';
@@ -83,7 +87,7 @@ function addNewBook(newBook){
         $('<div>', {class: 'book_author'}).html('from ' + newBook.author).appendTo('.book_title:last');
         $('<div>', {class: 'book_info'}).appendTo('.book_item:last');
         $('<div>', {class: 'book_friend'}).html(newBook.friend).appendTo('.book_info:last');
-        $('<div>', {class: 'book_until'}).html(newBook.until).appendTo('.book_info:last');
+        $('<div>', {class: 'book_until'}).html(new Date().toLocaleDateString() + ' - ' +newBook.until).appendTo('.book_info:last');
         $('<button>', {class: 'book_button', type: 'button'}).appendTo('.book_item:last');
         $('<img>', {class: 'button_img', src: 'img/menu.png'}).appendTo('.book_button:last');
         $('.book_button').on('click', showChangeModal);
